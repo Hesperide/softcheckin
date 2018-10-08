@@ -9,7 +9,7 @@ const schema = require('./graphql/schema');
 mongoose.Promise = global.Promise;
 
 // Mongo database currently local. Port to cloud later, use Azure Cosmos DB.
-mongoose.connect('mongodb://localhost/testdb', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/softcheckin', { useNewUrlParser: true });
 mongoose.connection.once('open', () => { console.log('connected to database'); }).on('error', (err) => { console.log(err); });
 
 const server = hapi.server({
@@ -45,34 +45,16 @@ const init = async () => {
 				cors: true
 			}
 		}
-	});
 
+	});
+	//Keep original route, use Hapi to load HTML files? How can I integrate this to the frontend?
+	//Don't need typical API endpoints since using GraphQL.
 	server.route([
 		{
 			method: 'GET',
 			path: '/',
 			handler: (request, reply) => {
 				return `<h1>My modern api</h1>`;
-			}
-		},
-		{
-			method: 'GET',
-			path: '/api/v1/peers',
-			handler: (req, reply) => {
-				return Peer.find();
-			}
-		},
-		{
-			method: 'POST',
-			path: '/api/v1/peers',
-			handler: (req, reply) => {
-				const { name, age, program } = req.payload;
-				const peer = new Peer({
-					name,
-					age,
-					program
-				});
-				return peer.save();
 			}
 		},
 	]);

@@ -5,6 +5,7 @@ const PeerType = new GraphQLObjectType({
 	name: 'Peer',
 	fields: () => ({
 		id: { type: GraphQLString },
+		name: { type: GraphQLString}, 
 		age: { type: GraphQLInt },
 		program: { type: GraphQLString },
 	})
