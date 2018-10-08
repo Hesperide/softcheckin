@@ -1,9 +1,11 @@
 const hapi = require('hapi');
 const mongoose = require('mongoose');
 const Peer = require('./models/Peer');
-
+const { makeExecutableSchema } = require('graphql-tools');
 const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
+
 const schema = require('./graphql/schema');
+const resolvers = require('./graphql/resolvers');
 
 // ES6 Promises
 mongoose.Promise = global.Promise;
@@ -15,6 +17,11 @@ mongoose.connection.once('open', () => { console.log('connected to database'); }
 const server = hapi.server({
 	port: 8000,
 	host: 'localhost'
+});
+
+const executableSchema = makeExecutableSchema({
+	typeDefs: [schema],
+	resolvers: resolvers( { Peer } ),
 });
 
 
@@ -39,7 +46,7 @@ const init = async () => {
 		options: {
 			path: '/graphql',
 			graphqlOptions: {
-				schema
+				schema: executableSchema
 			},
 			route: {
 				cors: true

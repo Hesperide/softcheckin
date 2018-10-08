@@ -1,25 +1,24 @@
-const graphql = require('graphql');
-const PeerType = require('./PeerType');
-const Peer = require('./../models/Peer');
-const {
-	GraphQLObjectType,
-	GraphQLString,
-	GraphQLSchema
-} = graphql
-
-const RootQuery = new GraphQLObjectType({
-	name: 'RootQueryType',
-	fields: {
-		peer: {
-			type: PeerType,
-			args: { id: { type: GraphQLString } },
-			resolve(parent, args){
-				return Peer.findById(args.id);
-			}
-		}
+const schema = `
+	type Peer {
+		id: ID!
+		name: String!
+		age: Int!
+		program: String!
 	}
-});
 
-module.exports = new GraphQLSchema({
-	query: RootQuery
-});
+	type Query {
+		getPeerById(id: ID!): Peer
+		getPeerByName(name: String!): Peer
+	}
+
+	type Mutation {
+		createPeer(name: String!, age: Int!, program: String!): Peer
+	}
+
+	schema {
+		query : Query
+		mutation : Mutation
+	}
+	`;
+
+module.exports = schema
