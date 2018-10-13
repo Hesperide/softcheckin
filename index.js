@@ -1,6 +1,8 @@
 const hapi = require('hapi');
 const mongoose = require('mongoose');
 const Peer = require('./models/Peer');
+const User = require('./models/User');
+const Entry = require('./models/Entry');
 const { makeExecutableSchema } = require('graphql-tools');
 const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
 
@@ -21,9 +23,8 @@ const server = hapi.server({
 
 const executableSchema = makeExecutableSchema({
 	typeDefs: [schema],
-	resolvers: resolvers( { Peer } ),
+	resolvers: resolvers( { Peer, User, Entry } ),
 });
-
 
 const init = async () => {
 
