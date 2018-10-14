@@ -55,8 +55,8 @@ const init = async () => {
 		}
 
 	});
-	//Keep original route, use Hapi to load HTML files? How can I integrate this to the frontend?
-	//Don't need typical API endpoints since using GraphQL.
+	//TODO Auth
+	//Obsolete, can remove since /graphql endpoint and HTML will be hosted from client project.
 	server.route([
 		{
 			method: 'GET',
