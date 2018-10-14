@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-//import { Mutation } from 'react-apollo'
-//import gql from 'graphql-tag'
 import logo from './logo.svg'
 import './App.css'
+import PeerList from './PeerList'
 
 class Dashboard extends Component {
 	render() {
@@ -13,6 +12,7 @@ class Dashboard extends Component {
 					<p>
 						Dashboard eventually goes here!
 					</p>
+					<PeerList userId={this.props.userId}/>
 				</header>
 			</div>
 		);
