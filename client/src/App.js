@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Header from './Header'
 import CreatePeer from './CreatePeer'
+import CreateUser from './CreateUser'
 import Dashboard from './Dashboard'
 import { Switch, Route } from 'react-router-dom'
 
@@ -11,12 +12,13 @@ class App extends Component {
 	render() {
 		const userId = "5bc23882a52aa63b54fccdbc";
 		return (
-			<div className="center w85">
+			<div>
 				<Header />
 				<div className="ph3 pv1 background-gray">
 					<Switch>
 						<Route exact path="/" render={() => <Dashboard userId={userId} />} />
 						<Route exact path="/createPeer" render={() => <CreatePeer userId={userId} />} />
+						<Route exact path="/createUser" component={CreateUser}/>
 					</Switch>
 				</div>
 			</div>
