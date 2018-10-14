@@ -6,6 +6,7 @@ const EntrySchema = new Schema({
 	expType: Number, //TODO
 	userId: String, //Not sure if really necessary.
 	peerId: String,
+	created: Date,
 });
 
 module.exports = mongoose.model('Entry', EntrySchema);

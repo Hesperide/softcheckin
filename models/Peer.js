@@ -5,7 +5,7 @@ const PeerSchema = new Schema({
 	name: String,
 	age: Number,
 	program: String,
-	lastCheckIn: Number,
+	lastCheckIn: Date,
 	userId: String,
 });
 
