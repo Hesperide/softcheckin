@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { timeDifferenceForDate } from './utils'
+import { Link } from 'react-router-dom'
 
 class Peer extends Component {
 	render() {
@@ -7,7 +9,8 @@ class Peer extends Component {
 		return(
 			<div>
 				<div>
-					{this.props.peer.name} | {this.props.peer.age} | {this.props.peer.program} | {date.toString()}
+					{this.props.peer.name} | {this.props.peer.age} | {this.props.peer.program} | {timeDifferenceForDate(date).toString() + " "}
+					 | <Link to={{ pathname: '/createEntry', state: { peerId: this.props.peer._id, userId: this.props.peer.userId }}} className="ml1 no-underline black">Entries</Link>
 				</div>
 			</div>
 		)

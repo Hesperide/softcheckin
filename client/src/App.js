@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Header from './Header'
 import CreatePeer from './CreatePeer'
 import CreateUser from './CreateUser'
+import CreateEntry from './CreateEntry'
 import Dashboard from './Dashboard'
 import { Switch, Route } from 'react-router-dom'
 
@@ -20,6 +21,7 @@ class App extends Component {
 						<Route exact path="/" render={() => <Dashboard userId={userId} userName={userName} />} />
 						<Route exact path="/createPeer" render={() => <CreatePeer userId={userId} />} />
 						<Route exact path="/createUser" component={CreateUser}/>
+						<Route exact path='/createEntry' component={CreateEntry}/>
 					</Switch>
 				</div>
 			</div>

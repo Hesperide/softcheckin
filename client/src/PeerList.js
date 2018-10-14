@@ -11,6 +11,7 @@ const PEER_QUERY = gql`
 			program
 			age
 			lastCheckIn
+			userId
 		}
 	}
 `
@@ -20,6 +21,7 @@ class PeerList extends Component {
 	render(){
 		const userId = String(this.props.userId);
 		return (
+		<div>
 			<Query query={PEER_QUERY} variables={ {userId} } >
 			{({ loading, error, data }) => {
 				if (loading) return <div>Fetching</div>
@@ -32,6 +34,7 @@ class PeerList extends Component {
 				)
 			}}
 			</Query>
+		</div>
 		);
 	}
 }
