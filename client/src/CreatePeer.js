@@ -5,7 +5,7 @@ import './App.css'
 
 
 const POST_MUTATION = gql`
-	mutation PostMutation($userId: String!, $peerName: String!, $peerAge: Number!, $peerProgram: String!){
+	mutation PostMutation($userId: String!, $peerName: String!, $peerAge: Int!, $peerProgram: String!){
 		createPeer(userId: $userId, name: $peerName, age: $peerAge, program: $peerProgram){
 			_id
 			name
@@ -20,7 +20,6 @@ class CreatePeer extends Component {
 	constructor(){
 		super();
 		this.state = {
-			userId: "",
 			peerName: "",
 			peerAge: "",
 			peerProgram: "",
@@ -34,10 +33,14 @@ class CreatePeer extends Component {
 		this.setState({
 			[name] : value
 		});
+		console.log(this.state);
+		console.log(this.props.userId);
 	};
 
 	render() {
-		const { userId, peerName, peerAge, peerProgram } = this.state;
+		const userId = String(this.props.userId);
+		const { peerName, peerProgram } = this.state;
+		const peerAge = parseInt(this.state.peerAge);
 		return(	
 			<div className="App">
 				<header className="App-header">
@@ -62,9 +65,9 @@ class CreatePeer extends Component {
 						name="peerProgram"
 						onChange={ v => this.updateInputValue(v)}
 					/>
-					<Mutation mutation={POST_MUTATION} variables={{ userId, peerName, peerAge, peerProgram}}>
+					<Mutation mutation={POST_MUTATION} variables={{ userId, peerName, peerAge, peerProgram}} errorPolicy="all">
 						{(PostMutation)  => (
-							<button onClick={PostMutation}>Create User</button>
+							<button onClick={PostMutation}>Create Peer</button>
 						)}
 					</Mutation>
 				</header>

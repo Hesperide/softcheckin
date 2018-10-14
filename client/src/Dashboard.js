@@ -23,7 +23,6 @@ class Dashboard extends Component {
 			userEmail: "",
 		};
 		this.updateInputValue = this.updateInputValue.bind(this);
-		this.createUser = this.createUser.bind(this);
 	}
 
 	updateInputValue = v => {
@@ -34,13 +33,6 @@ class Dashboard extends Component {
 		this.setState({
 			[name] : value
 		});
-	};
-
-	createUser = () => {
-		console.log(this.state);
-		const { userName, userEmail } = this.state;
-		console.log ( "Name: " + userName + "." );
-		alert("New user " + userName + " has been created with e-mail " + userEmail  + ".");
 	};
 
 	render() {
