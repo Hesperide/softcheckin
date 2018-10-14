@@ -16,6 +16,7 @@ class App extends Component {
 	updateInputValue = v => {
 		const { name, value } = v.target;
 		console.log( name );
+		console.log( value );
 		console.log( v.target );
 		this.setState({
 			[name] : value
@@ -23,9 +24,10 @@ class App extends Component {
 	};
 
 	createUser = () => {
-		const { name, email } = this.state;
-		console.log ( "Name: " + name + "." );
-		alert("New user " + name + " has been created with e-mail " + email  + ".");
+		console.log(this.state);
+		const { userName, userEmail } = this.state;
+		console.log ( "Name: " + userName + "." );
+		alert("New user " + userName + " has been created with e-mail " + userEmail  + ".");
 	};
 
 	render() {
@@ -39,13 +41,13 @@ class App extends Component {
 					<input
 						type="text"
 						placeholder="Alex Cuoci"
-						value={this.state.value}
+						value={this.state.userName}
 						name="userName"
 						onChange={this.updateInputValue}
 					/>
 					<input
 						placeholder="alex.cuoci@hotmail.ca"
-						value={this.state.value}
+						value={this.state.userEmail}
 						name="userEmail"
 						onChange={ v => this.updateInputValue(v)}
 					/>
