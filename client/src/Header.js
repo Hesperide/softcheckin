@@ -8,17 +8,11 @@ class Header extends Component {
 			<div className="flex pal justify-between nowrap orange">
 				<div className="flex flex-fixed black">
 					<div className="fw7 mr1">CheckIn Dashboard</div>
-					<Link to="/" className="ml1 no-underline black">
-						Dashboard
-					</Link>
+					<Link to="/" className="ml1 no-underline black">Dashboard</Link>
 					<div className="ml1">|</div>
-					<Link to="/createUser" className="ml1 no-underline black">
-						Create User
-					</Link>
+					<Link to="/createUser" className="ml1 no-underline black">Create User</Link>
 					<div className="ml1">|</div>
-					<Link to="/createPeer" className="ml1 no-underline black">
-						Create Peer
-					</Link>
+					<Link to="/createPeer" className="ml1 no-underline black">Create Peer</Link>
 				</div>
 			</div>
 		)

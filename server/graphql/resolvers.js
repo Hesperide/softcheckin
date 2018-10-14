@@ -19,7 +19,7 @@ const resolvers = (models) => ({
 			return models.Peer.findOne({ userId: userId, name: name}).then((response) => response);
 		},
 		getMyPeers(parent, { userId }){
-			return models.Peer.find({ userId: userId }).then((response) => response);
+			return models.Peer.find({ userId: userId }).sort('lastCheckIn').then((response) => response);
 		},
 		getPeerEntries(parent, { peerId }){
 			return models.Entry.find({ peerId: peerId }).then((response) => response);
@@ -32,6 +32,7 @@ const resolvers = (models) => ({
 		},
 		createPeer(parent, args){
 			const peer = new models.Peer(args);
+			peer.lastCheckIn = new Date();
 			return peer.save().then((response) => response);
 		},
 		createEntry(parent, args){

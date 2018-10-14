@@ -27,7 +27,7 @@ class PeerList extends Component {
 				console.log(data['getMyPeers']);
 				return(
 					<div>
-						{data['getMyPeers'].map(peer => <Peer key={peer._id} name={peer.name} age={peer.age} program={peer.program}/>)}
+						{data['getMyPeers'].map(peer => <Peer key={peer._id} peer={peer}/>)}
 					</div>
 				)
 			}}

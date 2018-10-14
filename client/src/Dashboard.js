@@ -10,7 +10,7 @@ class Dashboard extends Component {
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
 					<p>
-						Dashboard eventually goes here!
+						{this.props.userName}'s Dashboard
 					</p>
 					<PeerList userId={this.props.userId}/>
 				</header>

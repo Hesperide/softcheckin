@@ -11,12 +11,13 @@ import { Switch, Route } from 'react-router-dom'
 class App extends Component {
 	render() {
 		const userId = "5bc23882a52aa63b54fccdbc";
+		const userName = "Alex Cuoci";
 		return (
 			<div>
 				<Header />
 				<div className="ph3 pv1 background-gray">
 					<Switch>
-						<Route exact path="/" render={() => <Dashboard userId={userId} />} />
+						<Route exact path="/" render={() => <Dashboard userId={userId} userName={userName} />} />
 						<Route exact path="/createPeer" render={() => <CreatePeer userId={userId} />} />
 						<Route exact path="/createUser" component={CreateUser}/>
 					</Switch>
