@@ -1,13 +1,9 @@
-const prepare = (o) => {
-  o._id = o._id.toString()
-  return o
-}
-
-
+const { GraphQLScalarType } = require('graphql');
+const { Kind } = require('graphql/language');
 const resolvers = (models) => ({
 	Query: {
 		users(){
-			return models.User.find().then((response) => response.map(prepare));
+			return models.User.find().then((response) => response);
 		},
 		peers(){
 			return models.Peer.find().then((response) => response);
