@@ -18,13 +18,17 @@ mongoose.connection.once('open', () => { console.log('connected to database'); }
 
 const server = hapi.server({
 	port: 3001,
-	host: 'localhost'
+	host: 'localhost',
+	routes: { cors: true },
 });
+
 
 const executableSchema = makeExecutableSchema({
 	typeDefs: [schema],
 	resolvers: resolvers( { Peer, User, Entry } ),
 });
+
+
 
 const init = async () => {
 

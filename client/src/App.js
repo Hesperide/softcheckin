@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
+import { Mutation } from 'react-apollo';
+import gql from 'graphql-tag';
 import logo from './logo.svg';
 import './App.css';
+
+
+const POST_MUTATION = gql`
+	mutation PostMutation($userName: String!, $userEmail: String!) {
+		createUser(name: $userName, email: $userEmail){
+			_id
+			name
+			email
+		}
+	}
+`
 
 class App extends Component {
 	constructor(){
@@ -31,6 +44,7 @@ class App extends Component {
 	};
 
 	render() {
+		const { userName, userEmail } = this.state;
 		return (
 			<div className="App">
 				<header className="App-header">
@@ -51,11 +65,15 @@ class App extends Component {
 						name="userEmail"
 						onChange={ v => this.updateInputValue(v)}
 					/>
-					<button onClick={this.createUser}>Create User</button>
+					<Mutation mutation={POST_MUTATION} variables={{ userName, userEmail}}>
+						{(PostMutation)  => (
+							<button onClick={PostMutation}>Create User</button>
+						)}
+					</Mutation>
 				</header>
 			</div>
 		);
-	}
+	} 
 }
 
 export default App;
