@@ -4,11 +4,12 @@ import PeerList from './PeerList'
 
 class Dashboard extends Component {
 	render() {
+			console.log(this.props);
 		return (
 			<div className="App">
 				<header className="App-header">
 					<p>
-						{this.props.userName}'s Dashboard
+						Check In Dashboard
 					</p>
 					<PeerList userId={this.props.userId}/>
 				</header>

@@ -26,7 +26,6 @@ class PeerList extends Component {
 			{({ loading, error, data }) => {
 				if (loading) return <div>Fetching</div>
 				if (error) console.log(error);
-				console.log(data['getMyPeers']);
 				return(
 					<table className="table">
 						<thead>

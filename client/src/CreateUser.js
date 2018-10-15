@@ -3,7 +3,6 @@ import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 import './App.css'
 
-
 const POST_MUTATION = gql`
 	mutation PostMutation($userName: String!, $userEmail: String!) {
 		createUser(name: $userName, email: $userEmail){
@@ -14,13 +13,13 @@ const POST_MUTATION = gql`
 	}
 `
 
-
 class CreateUser extends Component {
 	constructor(){
 		super();
 		this.state = {
 			userName: "",
 			userEmail: "",
+			userId: "",
 		};
 		this.updateInputValue = this.updateInputValue.bind(this);
 	}
@@ -50,16 +49,18 @@ class CreateUser extends Component {
 						name="userName"
 						onChange={this.updateInputValue}
 					/>
+					<div>
 					<input
 						placeholder="E-mail address"
 						value={this.state.userEmail}
 						name="userEmail"
 						onChange={ v => this.updateInputValue(v)}
 					/>
+					</div>
 					<div>
 					<Mutation mutation={POST_MUTATION} variables={{ userName, userEmail}}>
 						{(PostMutation)  => (
-							<button type="button" class="btn btn-primary"  onClick={PostMutation}>Create User</button>
+							<button type="button" className="btn btn-primary"  onClick={PostMutation}>Create User</button>
 						)}
 					</Mutation>
 					</div>

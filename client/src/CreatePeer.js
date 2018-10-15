@@ -33,8 +33,6 @@ class CreatePeer extends Component {
 		this.setState({
 			[name] : value
 		});
-		console.log(this.state);
-		console.log(this.props.userId);
 	};
 
 	render() {
