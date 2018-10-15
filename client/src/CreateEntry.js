@@ -48,20 +48,30 @@ class CreateEntry extends Component {
 						Peer Dashboard	
 					</p>
 					<div>
+						<label style= {{paddingRight:"20px"}}>
+							Notes:
+						</label>
 						<input
+							style= {{width:"500px"}}
 							placeholder="Notes"
 							value={this.state.contents}
 							name="contents"
 							onChange={this.updateInputValue}
 						/>
 					</div>
-					<div>
-						<input
-							placeholder="0"
-							value={this.state.expType}
-							name="expType"
-							onChange={ v => this.updateInputValue(v)}
-						/>
+					<div>	
+						<label style= {{paddingRight:"20px"}}>
+							Rate your experience:
+						</label>
+					<select 
+						name="expType" 
+						value = {this.state.expType}
+						style = {{width:"298px"}}
+						onChange={this.updateInputValue}>
+ 						 <option value='2'>Good</option>
+						 <option selected value='1'>Neutral</option>
+						 <option value='0'>Bad</option>
+					</select>
 					</div>
 					<div>
 					<Mutation mutation={POST_MUTATION} variables={{ peerId, userId, contents, expType}} errorPolicy="all">

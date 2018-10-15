@@ -48,19 +48,19 @@ class CreatePeer extends Component {
 						Peer Creation
 					</p>
 					<input
-						placeholder="Alex Cuoci"
+						placeholder="Name"
 						value={this.state.peerName}
 						name="peerName"
 						onChange={this.updateInputValue}
 					/>
 					<input
-						placeholder="21"
+						placeholder="Age"
 						value={this.state.peerAge}
 						name="peerAge"
 						onChange={ v => this.updateInputValue(v)}
 					/>
 					<input
-						placeholder="Computer Science"
+						placeholder="Program of Study"
 						value={this.state.peerProgram}
 						name="peerProgram"
 						onChange={ v => this.updateInputValue(v)}

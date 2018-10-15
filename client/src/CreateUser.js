@@ -45,13 +45,13 @@ class CreateUser extends Component {
 					</p>
 					<input
 						type="text"
-						placeholder="Alex Cuoci"
+						placeholder="Full Name"
 						value={this.state.userName}
 						name="userName"
 						onChange={this.updateInputValue}
 					/>
 					<input
-						placeholder="alex.cuoci@hotmail.ca"
+						placeholder="E-mail address"
 						value={this.state.userEmail}
 						name="userEmail"
 						onChange={ v => this.updateInputValue(v)}

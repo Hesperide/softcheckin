@@ -26,6 +26,18 @@ function timeDifference(current, previous) {
   }
 }
 
+export function expTypeParse(val){
+  if ( val === 0){
+	return "Bad"
+  }
+  else if ( val === 2){
+	return "Good"
+  }
+  else {
+	return "Neutral"
+  }
+}
+
 export function timeDifferenceForDate(date) {
   const now = new Date().getTime()
   const updated = new Date(date).getTime()

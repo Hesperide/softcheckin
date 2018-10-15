@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { expTypeParse } from './utils'
 
 class Entry extends Component {
 	render() {
@@ -9,7 +10,7 @@ class Entry extends Component {
 			<tr>
 				<td>{date.toLocaleDateString()}</td>
 				<td>{this.props.entry.contents}</td>
-				<td>{this.props.entry.expType}</td>
+				<td>{expTypeParse(this.props.entry.expType)}</td>
 			</tr>
 			</tbody>
 		)
