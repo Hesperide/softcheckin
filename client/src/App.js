@@ -15,7 +15,9 @@ class App extends Component {
 		const userName = "Alex Cuoci";
 		return (
 			<div>
-				<Header />
+				<div className="ph3 pv1 background-gray">
+					<Header />
+				</div>
 				<div className="ph3 pv1 background-gray">
 					<Switch>
 						<Route exact path="/" render={() => <Dashboard userId={userId} userName={userName} />} />

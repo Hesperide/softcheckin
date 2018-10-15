@@ -28,9 +28,16 @@ class PeerList extends Component {
 				if (error) console.log(error);
 				console.log(data['getMyPeers']);
 				return(
-					<div>
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Age</th>
+							<th>Program</th>
+							<th>Last Check In</th>
+							<th>Notes</th>
+						</tr>
 						{data['getMyPeers'].map(peer => <Peer key={peer._id} peer={peer}/>)}
-					</div>
+					</table>
 				)
 			}}
 			</Query>

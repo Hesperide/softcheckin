@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
+import './App.css'
 
 class Header extends Component {
 	render() {
 		return (
-			<div className="flex pal justify-between nowrap orange">
-				<div className="flex flex-fixed black">
-					<div className="fw7 mr1">CheckIn Dashboard</div>
-					<Link to="/" className="ml1 no-underline black">Dashboard</Link>
-					<div className="ml1">|</div>
-					<Link to="/createUser" className="ml1 no-underline black">Create User</Link>
-					<div className="ml1">|</div>
-					<Link to="/createPeer" className="ml1 no-underline black">Create Peer</Link>
-				</div>
+			<div className="App-route">
+				<div className="fw7 mr1">CheckIn Dashboard</div>
+				<Link className="App-route-padding" to="/">Dashboard</Link>
+				|
+				<Link className="App-route-padding" to="/createUser" >Create User</Link>
+				|
+				<Link className="App-route-padding"  to="/createPeer" >Create Peer</Link>
 			</div>
 		)
 	}

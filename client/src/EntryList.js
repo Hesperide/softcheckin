@@ -26,9 +26,14 @@ class EntryList extends Component {
 				if (error) console.log(error);
 				console.log(data['getPeerEntries']);
 				return(
-					<div>
+					<table>
+						<tr>
+							<th>Created At</th>
+							<th>Contents</th>
+							<th>Experience Type</th>
+						</tr>
 						{data['getPeerEntries'].map(entry => <Entry key={entry._id} entry={entry}/>)}
-					</div>
+					</table>
 				)
 			}}
 			</Query>
