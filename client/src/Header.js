@@ -7,7 +7,7 @@ class Header extends Component {
 	render() {
 		return (
 			<div className="App-route">
-				<div className="fw7 mr1">CheckIn Dashboard</div>
+				<h1>SoftCheckIn</h1>
 				<Link className="App-route-padding" to="/">Dashboard</Link>
 				|
 				<Link className="App-route-padding" to="/createUser" >Create User</Link>

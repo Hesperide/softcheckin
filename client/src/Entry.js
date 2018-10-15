@@ -5,11 +5,13 @@ class Entry extends Component {
 		const date = new Date();
 		date.setTime(parseInt(this.props.entry.created));
 		return(
+			<tbody>
 			<tr>
-				<td>{date.getDate().toString()}</td>
+				<td>{date.toLocaleDateString()}</td>
 				<td>{this.props.entry.contents}</td>
 				<td>{this.props.entry.expType}</td>
 			</tr>
+			</tbody>
 		)
 	}
 }

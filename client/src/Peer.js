@@ -7,6 +7,7 @@ class Peer extends Component {
 		const date = new Date();
 		date.setTime(parseInt(this.props.peer.lastCheckIn));
 		return(
+			<tbody>
 			<tr>
 				<td>{this.props.peer.name}</td>
 				<td>{this.props.peer.age}</td>
@@ -14,6 +15,7 @@ class Peer extends Component {
 				<td>{timeDifferenceForDate(date).toString() + " "}</td>
 				<td><Link to={{ pathname: '/createEntry', state: { peerId: this.props.peer._id, userId: this.props.peer.userId }}} className="ml1 no-underline black">Entries</Link></td>
 			</tr>
+			</tbody>
 		)
 	}
 }

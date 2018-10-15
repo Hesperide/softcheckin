@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
 import './App.css'
 import PeerList from './PeerList'
 
@@ -8,7 +7,6 @@ class Dashboard extends Component {
 		return (
 			<div className="App">
 				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
 					<p>
 						{this.props.userName}'s Dashboard
 					</p>

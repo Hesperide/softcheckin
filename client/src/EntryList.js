@@ -25,16 +25,29 @@ class EntryList extends Component {
 				if (loading) return <div>Fetching</div>
 				if (error) console.log(error);
 				console.log(data['getPeerEntries']);
-				return(
-					<table>
+				if(data['getPeerEntries'].length > 0){
+					return(
+					<table className="table" style={{marginTop:"50px" }}>
+						<thead>
 						<tr>
 							<th>Created At</th>
 							<th>Contents</th>
 							<th>Experience Type</th>
 						</tr>
+						</thead>
 						{data['getPeerEntries'].map(entry => <Entry key={entry._id} entry={entry}/>)}
 					</table>
-				)
+					
+					)
+				} else{
+					return(
+					<div>
+					<hr />
+					<p>
+						No entries.
+					</p>
+					</div>);
+				}
 			}}
 			</Query>
 		</div>

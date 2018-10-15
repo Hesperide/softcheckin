@@ -6,7 +6,6 @@ import CreateEntry from './CreateEntry'
 import Dashboard from './Dashboard'
 import { Switch, Route } from 'react-router-dom'
 
-
 //User Id is currently hardcoded to Alex Cuoci.
 //TODO - When auth implemented on backend, can change to current logged in user.
 class App extends Component {

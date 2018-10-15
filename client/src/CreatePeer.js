@@ -45,7 +45,7 @@ class CreatePeer extends Component {
 			<div className="App">
 				<header className="App-header">
 					<p>
-						Create a new peer, then check out localhost:3001/graphiql to see it!
+						Peer Creation
 					</p>
 					<input
 						placeholder="Alex Cuoci"
@@ -65,11 +65,13 @@ class CreatePeer extends Component {
 						name="peerProgram"
 						onChange={ v => this.updateInputValue(v)}
 					/>
-					<Mutation mutation={POST_MUTATION} variables={{ userId, peerName, peerAge, peerProgram}} errorPolicy="all">
+					<div>
+					<Mutation  mutation={POST_MUTATION} variables={{ userId, peerName, peerAge, peerProgram}} errorPolicy="all">
 						{(PostMutation)  => (
-							<button onClick={PostMutation}>Create Peer</button>
+							<button type="button" class="btn btn-primary" onClick={PostMutation}>Create Peer</button>
 						)}
 					</Mutation>
+					</div>
 				</header>
 			</div>
 		);

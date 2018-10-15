@@ -47,24 +47,32 @@ class CreateEntry extends Component {
 					<p>
 						Peer Dashboard	
 					</p>
-					<input
-						placeholder="Notes"
-						value={this.state.contents}
-						name="contents"
-						onChange={this.updateInputValue}
-					/>
-					<input
-						placeholder="0"
-						value={this.state.expType}
-						name="expType"
-						onChange={ v => this.updateInputValue(v)}
-					/>
+					<div>
+						<input
+							placeholder="Notes"
+							value={this.state.contents}
+							name="contents"
+							onChange={this.updateInputValue}
+						/>
+					</div>
+					<div>
+						<input
+							placeholder="0"
+							value={this.state.expType}
+							name="expType"
+							onChange={ v => this.updateInputValue(v)}
+						/>
+					</div>
+					<div>
 					<Mutation mutation={POST_MUTATION} variables={{ peerId, userId, contents, expType}} errorPolicy="all">
 						{(PostMutation)  => (
-							<button onClick={PostMutation}>Create Entry</button>
+							<button type="button" class="btn btn-primary"  onClick={PostMutation}>Create Entry</button>
 						)}
 					</Mutation>
-					<EntryList userId={userId} peerId={peerId}/>
+					</div>
+					<div>
+						<EntryList userId={userId} peerId={peerId}/>
+					</div>
 				</header>
 			</div>
 		);

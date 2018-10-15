@@ -41,7 +41,7 @@ class CreateUser extends Component {
 			<div className="App">
 				<header className="App-header">
 					<p>
-						Create a new user, then check out localhost:3001/graphiql to see it!
+						User Creation
 					</p>
 					<input
 						type="text"
@@ -56,11 +56,13 @@ class CreateUser extends Component {
 						name="userEmail"
 						onChange={ v => this.updateInputValue(v)}
 					/>
+					<div>
 					<Mutation mutation={POST_MUTATION} variables={{ userName, userEmail}}>
 						{(PostMutation)  => (
-							<button onClick={PostMutation}>Create User</button>
+							<button type="button" class="btn btn-primary"  onClick={PostMutation}>Create User</button>
 						)}
 					</Mutation>
+					</div>
 				</header>
 			</div>
 		);

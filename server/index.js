@@ -29,7 +29,6 @@ const executableSchema = makeExecutableSchema({
 });
 
 
-
 const init = async () => {
 
 	//Using Apollo Server 1.3.4 for GraphiQL support.
@@ -67,7 +66,7 @@ const init = async () => {
 			path: '/',
 			handler: (request, reply) => {
 				return `<h1>My modern api</h1>`;
-			}
+			},
 		},
 	]);
 	
